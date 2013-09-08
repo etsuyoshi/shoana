@@ -125,25 +125,25 @@
 //        [vc setQuiz:self.quiz];
         [vc setQuiz:quiz];
     }else if([segue.identifier isEqualToString:@"segueSelect3"]){
-        path = [bundle pathForResource:@"homu3"
+        path = [bundle pathForResource:@"shoanakeizai00003"
                                 ofType:@"csv"];
         [quiz readFromCSV:path];
         vc = segue.destinationViewController;
         [vc setQuiz:quiz];
     }else if([segue.identifier isEqualToString:@"segueSelect4"]){
-        path = [bundle pathForResource:@"homu4"
+        path = [bundle pathForResource:@"shoanakeizai00004"
                                 ofType:@"csv"];
         [quiz readFromCSV:path];
         vc = segue.destinationViewController;
         [vc setQuiz:quiz];
     }else if([segue.identifier isEqualToString:@"segueSelect5"]){
-        path = [bundle pathForResource:@"homu5"
+        path = [bundle pathForResource:@"shoanakeizai00005"
                                 ofType:@"csv"];
         [quiz readFromCSV:path];
         vc = segue.destinationViewController;
         [vc setQuiz:quiz];
     }else if([segue.identifier isEqualToString:@"segueSelect6"]){
-        path = [bundle pathForResource:@"homu6"
+        path = [bundle pathForResource:@"shoanakeizai00006"
                                 ofType:@"csv"];
         [quiz readFromCSV:path];
         vc = segue.destinationViewController;
