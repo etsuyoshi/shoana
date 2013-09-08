@@ -90,7 +90,7 @@
     if ([segue.identifier isEqualToString:@"segueSelect1"])
     {
         
-        path = [bundle pathForResource:@"shoanakeizai00001"
+        path = [bundle pathForResource:@"shoanakeizai001"
                                 ofType:@"csv"];
         
         // ファイルから読み込んで、ローカル変数quizデータに格納する
@@ -108,7 +108,7 @@
         [vc setQuiz:quiz];
     }else if([segue.identifier isEqualToString:@"segueSelect2"]){
         
-        path = [bundle pathForResource:@"shoanakeizai00002"
+        path = [bundle pathForResource:@"shoanakeizai002"
                                 ofType:@"csv"];
         
         // ファイルから読み込んで、ローカル変数quizデータに格納する
@@ -125,19 +125,19 @@
 //        [vc setQuiz:self.quiz];
         [vc setQuiz:quiz];
     }else if([segue.identifier isEqualToString:@"segueSelect3"]){
-        path = [bundle pathForResource:@"shoanakeizai00003"
+        path = [bundle pathForResource:@"shoanakeizai003"
                                 ofType:@"csv"];
         [quiz readFromCSV:path];
         vc = segue.destinationViewController;
         [vc setQuiz:quiz];
     }else if([segue.identifier isEqualToString:@"segueSelect4"]){
-        path = [bundle pathForResource:@"shoanakeizai00004"
+        path = [bundle pathForResource:@"shoanakeizai004"
                                 ofType:@"csv"];
         [quiz readFromCSV:path];
         vc = segue.destinationViewController;
         [vc setQuiz:quiz];
     }else if([segue.identifier isEqualToString:@"segueSelect5"]){
-        path = [bundle pathForResource:@"shoanakeizai00005"
+        path = [bundle pathForResource:@"shoanakeizai005"
                                 ofType:@"csv"];
         [quiz readFromCSV:path];
         vc = segue.destinationViewController;

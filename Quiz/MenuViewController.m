@@ -44,6 +44,8 @@ NSMutableArray *sectQuestNoArray = nil;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    NSLog(@"menucontroller_start");
+    
     
     self.wrongList = [[NSMutableArray alloc] init];
     
@@ -57,16 +59,21 @@ NSMutableArray *sectQuestNoArray = nil;
     for(int sectNo = 1; sectNo <= 6;sectNo ++){
         
         sectName = [NSString stringWithFormat:@"%03d", sectNo];
+        NSLog(@"sectName = %@", sectName);
         for(int questNo = 0; questNo < 100;questNo++){
             questName = [NSString stringWithFormat:@"%03d0", questNo];
-            
+            NSLog(@"questName = %@", questName);
             if([nsud stringForKey:[NSString stringWithFormat:@"UncorrectAnsSECT%@Q%@", sectName, questName]] != NULL){
+                NSLog(@"%@-%@", sectName, questName);
+                
                 [sectQuestNameArray addObject:[NSString stringWithFormat:@"UncorrectAnsSECT%@Q%@", sectName, questName]];
                 [sectQuestNoArray addObject:[nsud stringForKey:[NSString stringWithFormat:@"UncorrectAnsSECT%@Q%@", sectName, questName]]];
 //              NSLog(@"%@章%@問誤答回数=%@", sectName, questName, [sectQuestArray lastObject]);//最後は常にnull
-            
-                NSLog(@"%@章%@:誤答回数=%@", sectName, questName, [nsud stringForKey:[NSString stringWithFormat:@"UncorrectAnsSECT%@Q%@", sectName, questName]]);
+//            ////////////////
+//                NSLog(@"%@章%@:誤答回数=%@", sectName, questName, [nsud stringForKey:[NSString stringWithFormat:@"UncorrectAnsSECT%@Q%@", sectName, questName]]);
 //                NSLog(@"%d", [sectQuestNameArray count]);
+            }else{
+                NSLog(@"UncorrectAnsSect%@Q%@が見つかりません", sectName, questName);
             }
         }
     }
@@ -140,7 +147,9 @@ NSMutableArray *sectQuestNoArray = nil;
                 if(searchLocation.location == NSNotFound){
                     //正解率表示がない場合
                 }else{
+//                    NSLog(@"%@", dispSentence);
                     dispSentence = [dispSentence substringWithRange:NSMakeRange(searchLocation.location+2,9)];
+//                    NSLog(@"%@", dispSentence);
                 }
                 dispSentence = [NSString stringWithFormat:@"%@...", dispSentence];
                 
@@ -152,6 +161,7 @@ NSMutableArray *sectQuestNoArray = nil;
                 //            NSLog(@"%@", [self getQuestSentence:dispName]);
                 wrongQuestion = [[WrongQuestion alloc]initWithName:dispName done:NO];
                 [self.wrongList addObject:wrongQuestion];
+                NSLog(@"next");
             }
             forNum ++;
         }
@@ -189,11 +199,11 @@ NSMutableArray *sectQuestNoArray = nil;
     NSString *tempStr = [questName substringFromIndex:16];
     int sectNo = [[tempStr substringWithRange:NSMakeRange(0, 3)] intValue];
     int questNo = [[tempStr substringWithRange:NSMakeRange(4,3)] intValue];
-    NSLog(@"%@, %@, %d, %d", questName, tempStr, sectNo, questNo);
+//    NSLog(@"%@, %@, %d, %d", questName, tempStr, sectNo, questNo);
     if(questName != nil){
         NSBundle *bundle = [NSBundle mainBundle];
         NSString *path = [bundle pathForResource:
-                          [NSString stringWithFormat:@"homu%d", sectNo]
+                          [NSString stringWithFormat:@"shoanakeizai00%d", sectNo]
                                           ofType:@"csv"];
         Quiz *quiz = [[Quiz alloc] initWithKokuhukuMode:questNo];
         [quiz readFromCSV:path];
