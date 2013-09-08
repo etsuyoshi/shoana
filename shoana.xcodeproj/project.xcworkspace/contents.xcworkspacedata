@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Homu3.xcodeproj">
+      location = "self:shoana.xcodeproj">
    </FileRef>
 </Workspace>
